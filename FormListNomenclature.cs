@@ -1,38 +1,143 @@
-﻿using System;
+﻿using CourseBD.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace CourseBD
 {
     public partial class FormListNomenclature : Form
     {
+        private SoccerContext db;
+        private List<Nomenclature> filterNomenclature; 
         public FormListNomenclature()
         {
             InitializeComponent();
+            db = new SoccerContext();
+            db.Nomenclature.Load();
+            dataGridView.DataSource = getDataSource();
+         
+           foreach(DataGridViewColumn column in dataGridView.Columns)
+            {
+                comboBoxSearch.Items.Add(column.Name);
+            }
+
         }
+
+        private BindingList<Nomenclature> getDataSource()
+        {
+            return db.Nomenclature.Local.ToBindingList();
+        }
+
+        private void checkFilterNomenclature()
+        {
+            if (comboBoxSearch.SelectedItem != null && 
+                comboBoxSearch.SelectedItem.ToString() != "" &&
+                textBoxSearch.Text.ToString() != "")
+            {
+                var listNomenclatures = db.Nomenclature.ToList();
+                var filterNomenclature = listNomenclatures.FindAll(nomenclature => nomenclature.GetType().GetProperty(comboBoxSearch.SelectedItem.ToString()).GetValue(nomenclature).ToString() == textBoxSearch.Text.ToString());
+                dataGridView.DataSource = filterNomenclature;
+            }
+            else dataGridView.DataSource = getDataSource();
+        }
+
 
         private void FormListNomenclatures_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "dataSet.nomenclature". При необходимости она может быть перемещена или удалена.
+
             this.nomenclatureTableAdapter.Fill(this.dataSet.nomenclature);
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void buttonCreate_Click(object sender, EventArgs e)
         {
+            FormElementNomenclature formElementNomenclature = new FormElementNomenclature();
+            DialogResult result = formElementNomenclature.ShowDialog(this);
+
+
+            if (result == DialogResult.OK)
+            {
+                Nomenclature nomenclature = new Nomenclature();
+                nomenclature.name = formElementNomenclature.textBoxName.Text.ToString();
+                nomenclature.manufacturer = formElementNomenclature.textBoxManufacturer.Text.ToString();
+                nomenclature.country = formElementNomenclature.textBoxCountry.Text.ToString();
+                db.Nomenclature.Add(nomenclature);
+                db.SaveChanges();
+                checkFilterNomenclature();
+                dataGridView.Refresh();
+            }
+        }
+
+        private void dataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var currentRow = dataGridView.CurrentRow;
+            if(currentRow != null)
+            {
+                FormElementNomenclature formElementNomenclature = new FormElementNomenclature();
+                int idNomenclature = Int32.Parse(currentRow.Cells["id"].Value.ToString());
+                Nomenclature nomenclature = db.Nomenclature.Find(idNomenclature);
+
+                formElementNomenclature.textBoxId.Text = currentRow.Cells["id"].Value.ToString();
+                formElementNomenclature.textBoxName.Text = currentRow.Cells["name"].Value.ToString();
+                formElementNomenclature.textBoxManufacturer.Text = currentRow.Cells["manufacturer"].Value.ToString();
+                formElementNomenclature.textBoxCountry.Text = currentRow.Cells["country"].Value.ToString();
+
+
+                DialogResult result = formElementNomenclature.ShowDialog(this);
+                if (result == DialogResult.OK && nomenclature != null)
+                {
+
+                    nomenclature.name = formElementNomenclature.textBoxName.Text.ToString();
+                    nomenclature.manufacturer = formElementNomenclature.textBoxManufacturer.Text.ToString();
+                    nomenclature.country = formElementNomenclature.textBoxCountry.Text.ToString();
+                    db.SaveChanges();
+                    checkFilterNomenclature();
+                    dataGridView.Refresh();
+
+                }
+            }
+            
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            var currentRow = dataGridView.CurrentRow;
+            if(currentRow != null)
+            {
+                int idNomenclature = Int32.Parse(currentRow.Cells["id"].Value.ToString());
+                Nomenclature nomenclature = db.Nomenclature.Find(idNomenclature);
+                db.Nomenclature.Remove(nomenclature);
+                db.SaveChanges();
+                checkFilterNomenclature();
+                dataGridView.Refresh();
+            }
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
-            Form formElementNomenclature = new FormElementNomenclature();
-            formElementNomenclature.Show();
+
+            checkFilterNomenclature();
+
+        }
+
+        private void comboBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxSearch.SelectedItem != null && comboBoxSearch.SelectedItem.ToString() == "")
+            {
+                textBoxSearch.Text = "";
+                checkFilterNomenclature();
+            }
+                
+
         }
     }
 }

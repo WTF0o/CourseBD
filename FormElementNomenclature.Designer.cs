@@ -31,12 +31,12 @@ namespace CourseBD
         {
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.labelId = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.labelName = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.labelCountry = new System.Windows.Forms.Label();
+            this.textBoxCountry = new System.Windows.Forms.TextBox();
+            this.labelManufacturer = new System.Windows.Forms.Label();
+            this.textBoxManufacturer = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -58,62 +58,63 @@ namespace CourseBD
             this.labelId.TabIndex = 1;
             this.labelId.Text = "ID:";
             // 
-            // label1
+            // labelName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(175, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Имя:";
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(175, 17);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(39, 17);
+            this.labelName.TabIndex = 3;
+            this.labelName.Text = "Имя:";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(220, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 22);
-            this.textBox1.TabIndex = 2;
+            this.textBoxName.Location = new System.Drawing.Point(220, 14);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(243, 22);
+            this.textBoxName.TabIndex = 2;
             // 
-            // label2
+            // labelCountry
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(279, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Страна:";
+            this.labelCountry.AutoSize = true;
+            this.labelCountry.Location = new System.Drawing.Point(279, 63);
+            this.labelCountry.Name = "labelCountry";
+            this.labelCountry.Size = new System.Drawing.Size(60, 17);
+            this.labelCountry.TabIndex = 5;
+            this.labelCountry.Text = "Страна:";
             // 
-            // textBox2
+            // textBoxCountry
             // 
-            this.textBox2.Location = new System.Drawing.Point(345, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(119, 22);
-            this.textBox2.TabIndex = 4;
+            this.textBoxCountry.Location = new System.Drawing.Point(345, 60);
+            this.textBoxCountry.Name = "textBoxCountry";
+            this.textBoxCountry.Size = new System.Drawing.Size(119, 22);
+            this.textBoxCountry.TabIndex = 4;
             // 
-            // label3
+            // labelManufacturer
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Производитель:";
+            this.labelManufacturer.AutoSize = true;
+            this.labelManufacturer.Location = new System.Drawing.Point(12, 61);
+            this.labelManufacturer.Name = "labelManufacturer";
+            this.labelManufacturer.Size = new System.Drawing.Size(114, 17);
+            this.labelManufacturer.TabIndex = 7;
+            this.labelManufacturer.Text = "Производитель:";
             // 
-            // textBox3
+            // textBoxManufacturer
             // 
-            this.textBox3.Location = new System.Drawing.Point(132, 58);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(141, 22);
-            this.textBox3.TabIndex = 6;
+            this.textBoxManufacturer.Location = new System.Drawing.Point(132, 58);
+            this.textBoxManufacturer.Name = "textBoxManufacturer";
+            this.textBoxManufacturer.Size = new System.Drawing.Size(141, 22);
+            this.textBoxManufacturer.TabIndex = 6;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(372, 99);
+            this.buttonSave.Location = new System.Drawing.Point(310, 99);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(91, 34);
+            this.buttonSave.Size = new System.Drawing.Size(153, 34);
             this.buttonSave.TabIndex = 8;
-            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.Text = "Сохранить и выйти";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // FormElementNomenclature
             // 
@@ -121,31 +122,31 @@ namespace CourseBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 145);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.labelManufacturer);
+            this.Controls.Add(this.textBoxManufacturer);
+            this.Controls.Add(this.labelCountry);
+            this.Controls.Add(this.textBoxCountry);
+            this.Controls.Add(this.labelName);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelId);
             this.Controls.Add(this.textBoxId);
             this.Name = "FormElementNomenclature";
             this.Text = "FormElementNomenclature";
+            this.Load += new System.EventHandler(this.FormElementNomenclature_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label labelId;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelCountry;
+        private System.Windows.Forms.Label labelManufacturer;
         private System.Windows.Forms.Button buttonSave;
+        protected internal System.Windows.Forms.TextBox textBoxId;
+        protected internal System.Windows.Forms.TextBox textBoxName;
+        protected internal System.Windows.Forms.TextBox textBoxCountry;
+        protected internal System.Windows.Forms.TextBox textBoxManufacturer;
     }
 }
