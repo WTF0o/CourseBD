@@ -1,7 +1,7 @@
 ﻿
-namespace CourseBD
+namespace CourseBD.Forms.FormsCurrencies
 {
-    partial class FormElementNomenclature
+    partial class FormElementCurrencies
     {
         /// <summary>
         /// Required designer variable.
@@ -33,10 +33,6 @@ namespace CourseBD
             this.labelId = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.labelCountry = new System.Windows.Forms.Label();
-            this.textBoxCountry = new System.Windows.Forms.TextBox();
-            this.labelManufacturer = new System.Windows.Forms.Label();
-            this.textBoxManufacturer = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -47,7 +43,6 @@ namespace CourseBD
             this.textBoxId.ReadOnly = true;
             this.textBoxId.Size = new System.Drawing.Size(119, 22);
             this.textBoxId.TabIndex = 0;
-            this.textBoxId.TextChanged += new System.EventHandler(this.textBoxId_TextChanged);
             // 
             // labelId
             // 
@@ -74,41 +69,9 @@ namespace CourseBD
             this.textBoxName.Size = new System.Drawing.Size(243, 22);
             this.textBoxName.TabIndex = 2;
             // 
-            // labelCountry
-            // 
-            this.labelCountry.AutoSize = true;
-            this.labelCountry.Location = new System.Drawing.Point(279, 63);
-            this.labelCountry.Name = "labelCountry";
-            this.labelCountry.Size = new System.Drawing.Size(60, 17);
-            this.labelCountry.TabIndex = 5;
-            this.labelCountry.Text = "Страна:";
-            // 
-            // textBoxCountry
-            // 
-            this.textBoxCountry.Location = new System.Drawing.Point(345, 60);
-            this.textBoxCountry.Name = "textBoxCountry";
-            this.textBoxCountry.Size = new System.Drawing.Size(119, 22);
-            this.textBoxCountry.TabIndex = 4;
-            // 
-            // labelManufacturer
-            // 
-            this.labelManufacturer.AutoSize = true;
-            this.labelManufacturer.Location = new System.Drawing.Point(12, 61);
-            this.labelManufacturer.Name = "labelManufacturer";
-            this.labelManufacturer.Size = new System.Drawing.Size(114, 17);
-            this.labelManufacturer.TabIndex = 7;
-            this.labelManufacturer.Text = "Производитель:";
-            // 
-            // textBoxManufacturer
-            // 
-            this.textBoxManufacturer.Location = new System.Drawing.Point(132, 58);
-            this.textBoxManufacturer.Name = "textBoxManufacturer";
-            this.textBoxManufacturer.Size = new System.Drawing.Size(141, 22);
-            this.textBoxManufacturer.TabIndex = 6;
-            // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(310, 99);
+            this.buttonSave.Location = new System.Drawing.Point(310, 42);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(153, 34);
             this.buttonSave.TabIndex = 8;
@@ -116,23 +79,18 @@ namespace CourseBD
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // FormElementNomenclature
+            // FormElementCurrencies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 145);
+            this.ClientSize = new System.Drawing.Size(475, 83);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.labelManufacturer);
-            this.Controls.Add(this.textBoxManufacturer);
-            this.Controls.Add(this.labelCountry);
-            this.Controls.Add(this.textBoxCountry);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelId);
             this.Controls.Add(this.textBoxId);
-            this.Name = "FormElementNomenclature";
-            this.Text = "FormElementNomenclature";
-            this.Load += new System.EventHandler(this.FormElementNomenclature_Load);
+            this.Name = "FormElementCurrencies";
+            this.Text = "Валюта";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,12 +99,8 @@ namespace CourseBD
         #endregion
         private System.Windows.Forms.Label labelId;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Label labelCountry;
-        private System.Windows.Forms.Label labelManufacturer;
         private System.Windows.Forms.Button buttonSave;
         protected internal System.Windows.Forms.TextBox textBoxId;
         protected internal System.Windows.Forms.TextBox textBoxName;
-        protected internal System.Windows.Forms.TextBox textBoxCountry;
-        protected internal System.Windows.Forms.TextBox textBoxManufacturer;
     }
 }

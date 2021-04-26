@@ -1,13 +1,8 @@
 ﻿using CourseBD.Class;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -16,7 +11,6 @@ namespace CourseBD
     public partial class FormListNomenclature : Form
     {
         private SoccerContext db;
-        private List<Nomenclature> filterNomenclature; 
         public FormListNomenclature()
         {
             InitializeComponent();
@@ -40,8 +34,7 @@ namespace CourseBD
         {
             if (comboBoxSearch.SelectedItem != null && 
                 comboBoxSearch.SelectedItem.ToString() != "" &&
-                textBoxSearch.Text.ToString() != "")
-            {
+                textBoxSearch.Text.ToString() != ""){
                 var listNomenclatures = db.Nomenclature.ToList();
                 var filterNomenclature = listNomenclatures.FindAll(nomenclature => nomenclature.GetType().GetProperty(comboBoxSearch.SelectedItem.ToString()).GetValue(nomenclature).ToString() == textBoxSearch.Text.ToString());
                 dataGridView.DataSource = filterNomenclature;
@@ -62,13 +55,13 @@ namespace CourseBD
             FormElementNomenclature formElementNomenclature = new FormElementNomenclature();
             DialogResult result = formElementNomenclature.ShowDialog(this);
 
-
             if (result == DialogResult.OK)
             {
                 Nomenclature nomenclature = new Nomenclature();
                 nomenclature.name = formElementNomenclature.textBoxName.Text.ToString();
                 nomenclature.manufacturer = formElementNomenclature.textBoxManufacturer.Text.ToString();
                 nomenclature.country = formElementNomenclature.textBoxCountry.Text.ToString();
+
                 db.Nomenclature.Add(nomenclature);
                 db.SaveChanges();
                 checkFilterNomenclature();
@@ -135,8 +128,7 @@ namespace CourseBD
             {
                 textBoxSearch.Text = "";
                 checkFilterNomenclature();
-            }
-                
+            }        
 
         }
     }

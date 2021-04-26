@@ -14,6 +14,13 @@ namespace CourseBD.Class
         {  }
 
         public DbSet<Nomenclature> Nomenclature { get; set; }
+        public DbSet<Partner> Partner { get; set; }
+        public DbSet<Warehouse> Warehouse { get; set; }
+        public DbSet<Employees> Employees { get; set; }
+        public DbSet<Currencies> Currencies { get; set; }
+        public DbSet<Bills> Bills { get; set; }
+        public DbSet<CustomerOrder> CustomerOrder { get; set; }
+        public DbSet<CustomerOrderTable> CustomerOrderTable { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<SoccerContext>(null);

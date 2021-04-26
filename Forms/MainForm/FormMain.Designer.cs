@@ -38,9 +38,19 @@ namespace CourseBD
             this.buttonPartners = new System.Windows.Forms.Button();
             this.buttonNomenclatures = new System.Windows.Forms.Button();
             this.tabDocuments = new System.Windows.Forms.TabPage();
+            this.buttonExpenseCashOrder = new System.Windows.Forms.Button();
+            this.buttonCashReceiptOrder = new System.Windows.Forms.Button();
+            this.buttonRefundSuppler = new System.Windows.Forms.Button();
+            this.buttonRefundCustomer = new System.Windows.Forms.Button();
+            this.buttonSupplerOrder = new System.Windows.Forms.Button();
+            this.buttonCustomerOrder = new System.Windows.Forms.Button();
             this.tabRegisters = new System.Windows.Forms.TabPage();
+            this.buttonCashInBills = new System.Windows.Forms.Button();
+            this.buttonNomenclatureInWarehouse = new System.Windows.Forms.Button();
             this.tabs.SuspendLayout();
             this.tabReferences.SuspendLayout();
+            this.tabDocuments.SuspendLayout();
+            this.tabRegisters.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -78,6 +88,7 @@ namespace CourseBD
             this.buttonCurrencies.TabIndex = 5;
             this.buttonCurrencies.Text = "Валюта";
             this.buttonCurrencies.UseVisualStyleBackColor = true;
+            this.buttonCurrencies.Click += new System.EventHandler(this.buttonCurrencies_Click);
             // 
             // buttonBills
             // 
@@ -87,6 +98,7 @@ namespace CourseBD
             this.buttonBills.TabIndex = 4;
             this.buttonBills.Text = "Счета";
             this.buttonBills.UseVisualStyleBackColor = true;
+            this.buttonBills.Click += new System.EventHandler(this.buttonBills_Click);
             // 
             // buttonEmployees
             // 
@@ -96,6 +108,7 @@ namespace CourseBD
             this.buttonEmployees.TabIndex = 3;
             this.buttonEmployees.Text = "Работники";
             this.buttonEmployees.UseVisualStyleBackColor = true;
+            this.buttonEmployees.Click += new System.EventHandler(this.buttonEmployees_Click);
             // 
             // buttonWarehouse
             // 
@@ -105,6 +118,7 @@ namespace CourseBD
             this.buttonWarehouse.TabIndex = 2;
             this.buttonWarehouse.Text = "Склады и ПВЗ";
             this.buttonWarehouse.UseVisualStyleBackColor = true;
+            this.buttonWarehouse.Click += new System.EventHandler(this.buttonWarehouse_Click);
             // 
             // buttonPartners
             // 
@@ -114,6 +128,7 @@ namespace CourseBD
             this.buttonPartners.TabIndex = 1;
             this.buttonPartners.Text = "Партнеры";
             this.buttonPartners.UseVisualStyleBackColor = true;
+            this.buttonPartners.Click += new System.EventHandler(this.buttonPartners_Click);
             // 
             // buttonNomenclatures
             // 
@@ -127,6 +142,12 @@ namespace CourseBD
             // 
             // tabDocuments
             // 
+            this.tabDocuments.Controls.Add(this.buttonExpenseCashOrder);
+            this.tabDocuments.Controls.Add(this.buttonCashReceiptOrder);
+            this.tabDocuments.Controls.Add(this.buttonRefundSuppler);
+            this.tabDocuments.Controls.Add(this.buttonRefundCustomer);
+            this.tabDocuments.Controls.Add(this.buttonSupplerOrder);
+            this.tabDocuments.Controls.Add(this.buttonCustomerOrder);
             this.tabDocuments.Location = new System.Drawing.Point(4, 25);
             this.tabDocuments.Name = "tabDocuments";
             this.tabDocuments.Padding = new System.Windows.Forms.Padding(3);
@@ -135,8 +156,65 @@ namespace CourseBD
             this.tabDocuments.Text = "Документы";
             this.tabDocuments.UseVisualStyleBackColor = true;
             // 
+            // buttonExpenseCashOrder
+            // 
+            this.buttonExpenseCashOrder.Location = new System.Drawing.Point(6, 311);
+            this.buttonExpenseCashOrder.Name = "buttonExpenseCashOrder";
+            this.buttonExpenseCashOrder.Size = new System.Drawing.Size(318, 55);
+            this.buttonExpenseCashOrder.TabIndex = 6;
+            this.buttonExpenseCashOrder.Text = "Расходный кассовый ордер";
+            this.buttonExpenseCashOrder.UseVisualStyleBackColor = true;
+            // 
+            // buttonCashReceiptOrder
+            // 
+            this.buttonCashReceiptOrder.Location = new System.Drawing.Point(6, 250);
+            this.buttonCashReceiptOrder.Name = "buttonCashReceiptOrder";
+            this.buttonCashReceiptOrder.Size = new System.Drawing.Size(318, 55);
+            this.buttonCashReceiptOrder.TabIndex = 5;
+            this.buttonCashReceiptOrder.Text = "Приходный кассовый ордер";
+            this.buttonCashReceiptOrder.UseVisualStyleBackColor = true;
+            // 
+            // buttonRefundSuppler
+            // 
+            this.buttonRefundSuppler.Location = new System.Drawing.Point(6, 189);
+            this.buttonRefundSuppler.Name = "buttonRefundSuppler";
+            this.buttonRefundSuppler.Size = new System.Drawing.Size(318, 55);
+            this.buttonRefundSuppler.TabIndex = 4;
+            this.buttonRefundSuppler.Text = "Возврат поставщику";
+            this.buttonRefundSuppler.UseVisualStyleBackColor = true;
+            // 
+            // buttonRefundCustomer
+            // 
+            this.buttonRefundCustomer.Location = new System.Drawing.Point(6, 128);
+            this.buttonRefundCustomer.Name = "buttonRefundCustomer";
+            this.buttonRefundCustomer.Size = new System.Drawing.Size(318, 55);
+            this.buttonRefundCustomer.TabIndex = 3;
+            this.buttonRefundCustomer.Text = "Возврат от клиента";
+            this.buttonRefundCustomer.UseVisualStyleBackColor = true;
+            // 
+            // buttonSupplerOrder
+            // 
+            this.buttonSupplerOrder.Location = new System.Drawing.Point(6, 67);
+            this.buttonSupplerOrder.Name = "buttonSupplerOrder";
+            this.buttonSupplerOrder.Size = new System.Drawing.Size(318, 55);
+            this.buttonSupplerOrder.TabIndex = 2;
+            this.buttonSupplerOrder.Text = "Заказ поставщику";
+            this.buttonSupplerOrder.UseVisualStyleBackColor = true;
+            // 
+            // buttonCustomerOrder
+            // 
+            this.buttonCustomerOrder.Location = new System.Drawing.Point(6, 6);
+            this.buttonCustomerOrder.Name = "buttonCustomerOrder";
+            this.buttonCustomerOrder.Size = new System.Drawing.Size(318, 55);
+            this.buttonCustomerOrder.TabIndex = 1;
+            this.buttonCustomerOrder.Text = "Заказ клиента";
+            this.buttonCustomerOrder.UseVisualStyleBackColor = true;
+            this.buttonCustomerOrder.Click += new System.EventHandler(this.buttonCustomerOrder_Click);
+            // 
             // tabRegisters
             // 
+            this.tabRegisters.Controls.Add(this.buttonCashInBills);
+            this.tabRegisters.Controls.Add(this.buttonNomenclatureInWarehouse);
             this.tabRegisters.Location = new System.Drawing.Point(4, 25);
             this.tabRegisters.Name = "tabRegisters";
             this.tabRegisters.Size = new System.Drawing.Size(330, 380);
@@ -144,19 +222,40 @@ namespace CourseBD
             this.tabRegisters.Text = "Регистры";
             this.tabRegisters.UseVisualStyleBackColor = true;
             // 
+            // buttonCashInBills
+            // 
+            this.buttonCashInBills.Location = new System.Drawing.Point(12, 194);
+            this.buttonCashInBills.Name = "buttonCashInBills";
+            this.buttonCashInBills.Size = new System.Drawing.Size(303, 158);
+            this.buttonCashInBills.TabIndex = 6;
+            this.buttonCashInBills.Text = "Деньги на счетах";
+            this.buttonCashInBills.UseVisualStyleBackColor = true;
+            // 
+            // buttonNomenclatureInWarehouse
+            // 
+            this.buttonNomenclatureInWarehouse.Location = new System.Drawing.Point(12, 13);
+            this.buttonNomenclatureInWarehouse.Name = "buttonNomenclatureInWarehouse";
+            this.buttonNomenclatureInWarehouse.Size = new System.Drawing.Size(303, 158);
+            this.buttonNomenclatureInWarehouse.TabIndex = 5;
+            this.buttonNomenclatureInWarehouse.Text = "Номенклатура на складах";
+            this.buttonNomenclatureInWarehouse.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 390);
+            this.ClientSize = new System.Drawing.Size(330, 395);
             this.Controls.Add(this.tabs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
+            this.Text = "Главное меню";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabs.ResumeLayout(false);
             this.tabReferences.ResumeLayout(false);
+            this.tabDocuments.ResumeLayout(false);
+            this.tabRegisters.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -173,6 +272,14 @@ namespace CourseBD
         private System.Windows.Forms.Button buttonEmployees;
         private System.Windows.Forms.Button buttonWarehouse;
         private System.Windows.Forms.Button buttonPartners;
+        private System.Windows.Forms.Button buttonRefundSuppler;
+        private System.Windows.Forms.Button buttonRefundCustomer;
+        private System.Windows.Forms.Button buttonSupplerOrder;
+        private System.Windows.Forms.Button buttonCustomerOrder;
+        private System.Windows.Forms.Button buttonCashInBills;
+        private System.Windows.Forms.Button buttonNomenclatureInWarehouse;
+        private System.Windows.Forms.Button buttonExpenseCashOrder;
+        private System.Windows.Forms.Button buttonCashReceiptOrder;
     }
 }
 
